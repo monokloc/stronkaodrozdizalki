@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReChange Resolution</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            overflow-x: hidden;
+            color: #fff;
+            cursor: url('kursor.jpg'), auto; /* Ustawienie niestandardowego kursora */
+        }
+
+        /* Ekran ładowania */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            backdrop-filter: blur(10px); /* Rozmycie tła */
+        }
+
+        .loading-bar {
+            width: 50%; /* Mniejszy pasek */
+            height: 6px; /* Mniejszy pasek */
+            background-color: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .loading-progress {
+            width: 0;
+            height: 100%;
+            background-color: #ff00ff;
+            animation: loadAnimation 3s ease-in-out forwards;
+        }
+
+        @keyframes loadAnimation {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        /* Animacje */
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 70px 20px;
+            background: #000;
+            position: relative;
+            color: #fff;
+            z-index: 10;
+        }
+
+        .header-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        /* Ikona bota */
+        .bot-icon-container {
+            position: absolute;
+            top: 70px;
+            left: 20px;
+            cursor: move;
+            z-index: 2;
+        }
+
+        .bot-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            animation: rotate 5s linear infinite; /* Animacja obracania */
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px #1e2124;
+            animation: bounceIn 1s ease-in-out;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #fff;
+        }
+
+        .btn-primary {
+            background-color: #ff00ff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff00d4;
+            transform: scale(1.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #000;
+            color: #ffffff;
+        }
+
+        /* Profile pictures */
+        #team .col-md-4 img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #team .col-md-4 img:hover {
+            transform: scale(1.2); /* Powiększenie zdjęcia */
+        }
+
+        #team .col-md-4 h4 {
+            color: #fff;
+        }
+
+        #team .col-md-4 a {
+            color: #fff;
+        }
+
+        /* Ukrywanie strony przed załadowaniem */
+        .hidden-page {
+            display: none;
+        }
+
+        /* Animacja powiększenia i przesunięcia zakładek z funkcjami */
+        #features .card {
+            transition: transform 0.3s ease, position 0.3s ease;
+        }
+
+        #features .card:hover {
+            transform: scale(1.1); /* Powiększenie zakładki */
+            position: relative;
+            z-index: 10; /* Przesunięcie na wierzch */
+        }
+    </style>
+</head>
+<body>
+    <!-- Ekran ładowania -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-bar">
+            <div class="loading-progress" id="loading-progress"></div>
+        </div>
+    </div>
+
+    <!-- Zawartość strony -->
+    <div id="page-content" class="hidden-page">
+        <header>
+
+
+            <!-- Zawartość nagłówka (tekst i przycisk) -->
+            <div class="header-content">
+                <h1 class="fade-in">Change Resolution 📺</h1>
+                <p>Right here you can change your resolution!</p>
+                <a href="Changing the resolution.exe" class="btn btn-primary btn-lg mt-2" download>Download</a>
+                <a href="update_program.exe" class="btn btn-primary btn-lg mt-2 ml-2" download>Update</a> <!-- Nowy przycisk Update -->
+                <br>
+                <br>
+                <h2>How to download the program?<h2>
+                <br>
+                <p>Step one: First, download the Update file and run it. After installing the necessary drivers, click the download button, then run our project.<p>
+
+        </header>
+
+        <section id="features" class="container py-5">
+            <h2 class="text-center mb-4">Features</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card p-3">
+                        <h3>Option 1</h3>
+                        <p>This script allows you to easily change your screen resolution with just a few commands.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-3">
+                        <h3>Option 2</h3>
+                        <p>It simplifies the process of adjusting the display settings without the need to manually navigate through the control panel.</p>
+                        <img src="image.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-3">
+                        <h3>Option 3</h3>
+                        <p>By using this script, you can quickly set custom resolutions to suit your preferences or requirements.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="team" class="container py-5">
+            <h2 class="text-center mb-4">Program creators</h2>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <img src="discordprof1.jpg" class="rounded-circle mb-2" alt="Owner 1">
+                    <h4>Creator 1</h4>
+                    <p><a href="" class="text-light"><i class="fab fa-instagram"></i></a></p>
+                    <p><a href="" class="text-light"><i class="fab fa-discord"></i></a></p>
+                </div>
+                <div class="col-md-4">
+                    <img src="discordprof2.jpg" class="rounded-circle mb-2" alt="Owner 2">
+                    <h4>Creator 2</h4>
+                    <p><a href="https://www.instagram.com/dawid.zakolini/" class="text-light"><i class="fab fa-instagram"></i></a></p>
+                    <p><a href="" class="text-light"><i class="fab fa-discord"></i></a></p>
+                </div>
+                <div class="col-md-4">
+                    <img src="discordprof3.jpg" class="rounded-circle mb-2" alt="Owner 3">
+                    <h4>Creator 3</h4>
+                    <p><a href="" class="text-light"><i class="fab fa-instagram"></i> </a></p>
+                    <p><a href="" class="text-light"><i class="fab fa-discord"></i></a></p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>If you need any help, feel free to contact us!.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script>
+        // Usuwanie ekranu ładowania po załadowaniu strony
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                // Zmiana paska ładowania na pełny
+                document.getElementById('loading-progress').style.width = '100%';
+                setTimeout(() => {
+                    // Po zakończeniu ładowania pokaż stronę
+                    document.getElementById('loading-screen').style.display = 'none';
+                    document.getElementById('page-content').classList.remove('hidden-page');
+                }, 500); // Delay before showing page
+            }, 3000); // Czas na pełne załadowanie strony (dopasuj do swoich potrzeb)
+        });
+
+        // Funkcja do przeciągania ikony
+        const draggableIcon = document.getElementById("draggable-icon");
+        let isDragging = false;
+
+        draggableIcon.addEventListener("mousedown", (e) => {
+            isDragging = true;
+            const offsetX = e.clientX - draggableIcon.getBoundingClientRect().left;
+            const offsetY = e.clientY - draggableIcon.getBoundingClientRect().top;
+
+            const onMouseMove = (moveEvent) => {
+                if (isDragging) {
+                    const x = moveEvent.clientX - offsetX;
+                    const y = moveEvent.clientY - offsetY;
+                    draggableIcon.style.left = `${x}px`;
+                    draggableIcon.style.top = `${y}px`;
+                }
+            };
+
+            document.addEventListener("mousemove", onMouseMove);
+
+            document.addEventListener("mouseup", () => {
+                isDragging = false;
+                document.removeEventListener("mousemove", onMouseMove);
+            });
+        });
+    </script>
+</body>
+</html>
